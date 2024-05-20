@@ -13,6 +13,20 @@
 #pragma once
 
 
+#include <ea_audio_common/ea_audio_common.h>
+#include <ea_audio_utils/ea_audio_utils.h>
+#include <ea_common/ea_common.h>
+#include <ea_data_structures/ea_data_structures.h>
+#include <ea_events/ea_events.h>
+#include <ea_files/ea_files.h>
+#include <ea_gui_common/ea_gui_common.h>
+#include <ea_gui_components/ea_gui_components.h>
+#include <ea_logging/ea_logging.h>
+#include <ea_midi_utils/ea_midi_utils.h>
+#include <ea_plugin_utils/ea_plugin_utils.h>
+#include <ea_presets/ea_presets.h>
+#include <ea_serializable_data/ea_serializable_data.h>
+#include <ea_utilities/ea_utilities.h>
 #include <juce_audio_basics/juce_audio_basics.h>
 #include <juce_audio_devices/juce_audio_devices.h>
 #include <juce_audio_formats/juce_audio_formats.h>
@@ -21,10 +35,13 @@
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_core/juce_core.h>
 #include <juce_data_structures/juce_data_structures.h>
+#include <juce_dsp/juce_dsp.h>
 #include <juce_events/juce_events.h>
 #include <juce_graphics/juce_graphics.h>
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_gui_extra/juce_gui_extra.h>
+#include <pi_gui/pi_gui.h>
+#include <pi_utilities/pi_utilities.h>
 
 
 #if defined (JUCE_PROJUCER_VERSION) && JUCE_PROJUCER_VERSION < JUCE_VERSION
