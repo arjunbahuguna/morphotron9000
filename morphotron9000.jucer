@@ -14,6 +14,20 @@
     </GROUP>
   </MAINGROUP>
   <MODULES>
+    <MODULE id="ea_audio_common" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_common" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_files" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_gui_common" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_gui_components" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_logging" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_midi_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_plugin_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_presets" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_serializable_data" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="ea_utilities" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
@@ -23,10 +37,13 @@
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="pi_gui" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="pi_utilities" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
@@ -48,6 +65,23 @@
         <MODULEPATH id="juce_graphics" path="../../../../../JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="../../../../../JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../Downloads/JUCE/modules"/>
+        <MODULEPATH id="pi_gui" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_gui_common" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_events" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_common" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_data_structures" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="pi_utilities" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_audio_common" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_utilities" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_files" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_logging" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_midi_utils" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_audio_utils" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_gui_components" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_plugin_utils" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_serializable_data" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_presets" path="Submodules/PI-Toolbox/JUCE User Modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <VS2022 targetFolder="Builds/VisualStudio2022">
@@ -68,6 +102,23 @@
         <MODULEPATH id="juce_graphics" path="../../../../../JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="../../../../../JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../Downloads/JUCE/modules"/>
+        <MODULEPATH id="pi_gui" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_gui_common" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_events" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_common" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_data_structures" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="pi_utilities" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_audio_common" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_utilities" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_files" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_logging" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_midi_utils" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_audio_utils" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_gui_components" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_plugin_utils" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_serializable_data" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_presets" path="Submodules/PI-Toolbox/JUCE User Modules"/>
       </MODULEPATHS>
     </VS2022>
     <XCODE_MAC targetFolder="Builds/MacOSX">
@@ -88,6 +139,23 @@
         <MODULEPATH id="juce_graphics" path="../../../../../JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="../../../../../JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../Downloads/JUCE/modules"/>
+        <MODULEPATH id="pi_gui" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_gui_common" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_events" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_common" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_data_structures" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="pi_utilities" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_audio_common" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_utilities" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_files" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_logging" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_midi_utils" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_audio_utils" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_gui_components" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_plugin_utils" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_serializable_data" path="Submodules/PI-Toolbox/JUCE User Modules"/>
+        <MODULEPATH id="ea_presets" path="Submodules/PI-Toolbox/JUCE User Modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
   </EXPORTFORMATS>
