@@ -1,4 +1,4 @@
-# Morphotron9000\
+# Morphotron9000
 A neural audio plugin that performs realtime timbre transfer. This is a work-in-progress.
 
 **Frameworks used**\
