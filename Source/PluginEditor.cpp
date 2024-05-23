@@ -1,25 +1,27 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "PluginParameters.h"
 
 //==============================================================================
-Morphotron9000AudioProcessorEditor::Morphotron9000AudioProcessorEditor (Morphotron9000AudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
+Morphotron9000AudioProcessorEditor::Morphotron9000AudioProcessorEditor (Morphotron9000AudioProcessor& p, juce::AudioProcessorValueTreeState& parameters)
+    : AudioProcessorEditor (&p), processorRef (p), apvts(parameters)//, parameterControl(parameters)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 300);
+
+    for (auto & parameterID : PluginParameters::getPluginParameterList()) {
+        parameters.addParameterListener(parameterID, this);
+    }
+
+    
 }
 
 Morphotron9000AudioProcessorEditor::~Morphotron9000AudioProcessorEditor()
 {
+    for (auto & parameterID : PluginParameters::getPluginParameterList()) {
+    apvts.removeParameterListener(parameterID, this);
+}
 }
 
 //==============================================================================
@@ -40,7 +42,16 @@ void Morphotron9000AudioProcessorEditor::resized()
 }
 
 
-void AudioPluginAudioProcessorEditor::openFileChooser(int networkID) {
+void Morphotron9000AudioProcessorEditor::parameterChanged(const juce::String &parameterID, float newValue) {
+    //parameterControl.parameterChanged(parameterID, newValue);
+    if (parameterID == PluginParameters::SELECT_NETWORK1_ID.getParamID() && newValue == 1.f) {
+        openFileChooser(1);
+    } else if (parameterID == PluginParameters::SELECT_NETWORK2_ID.getParamID() && newValue == 1.f) {
+        openFileChooser(2);
+    }
+}
+
+void Morphotron9000AudioProcessorEditor::openFileChooser(int networkID) {
     fc = std::make_unique<juce::FileChooser> ("Choose a file to open...", juce::File::getSpecialLocation(juce::File::SpecialLocationType::userHomeDirectory),
                                               "*.ort", true);
 

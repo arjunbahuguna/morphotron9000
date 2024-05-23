@@ -1,11 +1,3 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
@@ -19,13 +11,28 @@ Morphotron9000AudioProcessor::Morphotron9000AudioProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ),
+        parameters (*this, nullptr, juce::Identifier ("Scyclone"), PluginParameters::createParameterLayout()),
+        onnxProcessor1(parameters, 1),//, FunkDrum),
+        onnxProcessor2(parameters, 2)//, Djembe)  since raveModel is not added in onnxProcessor constructor       
 #endif
 {
+    network1Name = "Funk";
+    network2Name = "Djembe";
+
+    for (auto & parameterID : PluginParameters::getPluginParameterList()) {
+        parameters.addParameterListener(parameterID, this);
+    }
+
+    parameters.state.addChild(PluginParameters::createNotAutomatableParameterLayout(), 0, nullptr);
+
 }
 
 Morphotron9000AudioProcessor::~Morphotron9000AudioProcessor()
-{
+{    
+    for (auto & parameterID : PluginParameters::getPluginParameterList()) {
+        parameters.removeParameterListener(parameterID, this);
+    }
 }
 
 //==============================================================================
@@ -166,23 +173,34 @@ bool Morphotron9000AudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* Morphotron9000AudioProcessor::createEditor()
 {
-    return new Morphotron9000AudioProcessorEditor (*this);
+    return new Morphotron9000AudioProcessorEditor (*this, parameters);
 }
 
 //==============================================================================
-void Morphotron9000AudioProcessor::getStateInformation (juce::MemoryBlock& destData)
-{
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
+
+//parameter state management: store in and restore from the memory block
+void Morphotron9000AudioProcessor::getStateInformation (juce::MemoryBlock& destData) {
+    auto state = parameters.copyState();
+    std::unique_ptr<juce::XmlElement> xml (state.createXml());
+    copyXmlToBinary (*xml, destData);
 }
 
-void Morphotron9000AudioProcessor::setStateInformation (const void* data, int sizeInBytes)
-{
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
+void Morphotron9000AudioProcessor::setStateInformation (const void* data, int sizeInBytes) {
+    std::unique_ptr<juce::XmlElement> xmlState(getXmlFromBinary(data, sizeInBytes));
+    if (xmlState != nullptr)
+        if (xmlState->hasTagName(parameters.state.getType())) {
+            parameters.replaceState(juce::ValueTree::fromXml(*xmlState));
+            network1Name.referTo(parameters.state.getChildWithName("Settings")
+                                                            .getPropertyAsValue(PluginParameters::NETWORK1_NAME_NAME, nullptr));
+            network2Name.referTo(parameters.state.getChildWithName("Settings")
+                                                            .getPropertyAsValue(PluginParameters::NETWORK2_NAME_NAME, nullptr));
+        }
 }
 
+void Morphotron9000AudioProcessor::parameterChanged(const juce::String &parameterID, float newValue) {
+    onnxProcessor1.parameterChanged(parameterID, newValue);
+    onnxProcessor2.parameterChanged(parameterID, newValue);
+}
 //==============================================================================
 // This creates new instances of the plugin..
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()

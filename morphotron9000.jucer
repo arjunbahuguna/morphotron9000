@@ -4,6 +4,17 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="TWxTId" name="morphotron9000">
     <GROUP id="{A053E23E-D722-3E35-2BBA-9B809E005E2D}" name="Source">
+      <GROUP id="{DD384802-BBA6-FE16-3929-2FE59355E747}" name="dsp">
+        <GROUP id="{E95C2785-6323-5E35-6178-77C68153B5B4}" name="onnx">
+          <FILE id="Ih1LRy" name="OnnxProcessor.cpp" compile="1" resource="0"
+                file="Source/dsp/onnx/OnnxProcessor.cpp"/>
+          <FILE id="AJWMzt" name="OnnxProcessor.h" compile="0" resource="0" file="Source/dsp/onnx/OnnxProcessor.h"/>
+        </GROUP>
+      </GROUP>
+      <FILE id="ot1Obd" name="PluginParameters.cpp" compile="1" resource="0"
+            file="Source/PluginParameters.cpp"/>
+      <FILE id="ACo8X6" name="PluginParameters.h" compile="0" resource="0"
+            file="Source/PluginParameters.h"/>
       <FILE id="cH1VJS" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="nN54LO" name="PluginProcessor.h" compile="0" resource="0"
